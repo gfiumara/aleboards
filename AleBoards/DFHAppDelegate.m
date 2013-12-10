@@ -6,17 +6,21 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "DFHAleBoardsViewController.h"
+
 #import "DFHAppDelegate.h"
 
 @implementation DFHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.backgroundColor = [UIColor whiteColor];
+
+	self.window.rootViewController = [DFHAleBoardsViewController new];
+
+	[self.window makeKeyAndVisible];
+	return (YES);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
