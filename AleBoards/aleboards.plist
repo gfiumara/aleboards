@@ -5,9 +5,9 @@
 	<dict>
 		<key>aleBoardURL</key>
 		<string>http://www.dogfishalehouse.com/media/albums/f.jpg</string>
-		<key>venueName</key>
+		<key>name</key>
 		<string>Falls Church, VA</string>
-		<key>venueURL</key>
+		<key>website</key>
 		<string>http://www.dogfishalehouse.com/locations/dfha-falls-church</string>
 		<key>phoneNumber</key>
 		<string>7035343342</string>
@@ -19,9 +19,9 @@ Falls Church, VA 22044</string>
 	<dict>
 		<key>aleBoardURL</key>
 		<string>http://www.dogfishalehouse.com/media/albums/ff.jpg</string>
-		<key>venueName</key>
+		<key>name</key>
 		<string>Fairfax, VA</string>
-		<key>venueURL</key>
+		<key>website</key>
 		<string>http://www.dogfishalehouse.com/locations/dfha-fairfax</string>
 		<key>phoneNumber</key>
 		<string>7039611140</string>
@@ -32,9 +32,9 @@ Fairfax, VA 22033</string>
 	<dict>
 		<key>aleBoardURL</key>
 		<string>http://www.dogfishalehouse.com/media/albums/g.jpg</string>
-		<key>venueName</key>
+		<key>name</key>
 		<string>Gaithersburg, MD</string>
-		<key>venueURL</key>
+		<key>website</key>
 		<string>http://www.dogfishalehouse.com/locations/dfha-gaithersburg</string>
 		<key>phoneNumber</key>
 		<string>3019634847</string>
