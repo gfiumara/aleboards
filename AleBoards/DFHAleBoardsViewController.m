@@ -10,6 +10,9 @@
 
 #import "DFHAleBoardsViewController.h"
 
+static NSString * const kDFHLocationIndexKey = @"locationIndex";
+static NSString * const kDFHAleBoardImageKey = @"image";
+
 @interface DFHAleBoardsViewController ()
 
 @property (nonatomic, strong) DFHAleBoardDownloader *downloader;
@@ -115,7 +118,7 @@
 
 		UIImageView *aleBoardImageView = [UIImageView new];
 		aleBoardImageView.translatesAutoresizingMaskIntoConstraints = NO;
-		aleBoardImageView.backgroundColor = [UIColor colorWithRed:(i * 128)/255.0 green:(i * 128)/255.0 blue:0 alpha:1];
+		aleBoardImageView.contentMode = UIViewContentModeScaleAspectFit;
 		self.aleBoardImageViews[i] = aleBoardImageView;
 		[views setObject:aleBoardImageView forKey:[NSString stringWithFormat:@"aleBoardImageView%lu", (long unsigned)i]];
 		[scrollView addSubview:aleBoardImageView];
@@ -156,7 +159,32 @@
 		NSDictionary *locationInfo = [self.downloader informationAtIndex:i];
 		((UILabel *)self.venueNameLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:locationInfo[kDFHNameKey] attributes:self.venueNameLabelAttributes];
 		((UILabel *)self.lastUpdatedLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Never", @"Last updated label when it has not been updated") attributes:self.lastUpdatedLabelAttributes];
+
+		[self.downloader downloadAleBoardAtIndex:i completionHandler:^(UIImage *image, NSDate *lastModifiedDate, NSError *error) {
+			if (error == nil) {
+				NSDictionary *data = @{kDFHLastModifiedKey : lastModifiedDate, kDFHAleBoardImageKey : image, kDFHLocationIndexKey : @(i)};
+				[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:data waitUntilDone:NO];
+			} else
+				[[[UIAlertView alloc] initWithTitle:error.localizedFailureReason message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", nil) otherButtonTitles:nil] show];
+		}];
 	}
+}
+
+- (void)displayLabelsAndImages:(NSDictionary *)data
+{
+	static NSDateFormatter *dateFormatter;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		dateFormatter = [NSDateFormatter new];
+		dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
+		dateFormatter.doesRelativeDateFormatting = YES;
+		dateFormatter.dateStyle = NSDateFormatterShortStyle;
+		dateFormatter.timeStyle = NSDateFormatterShortStyle;
+	});
+
+	NSUInteger location = [data[kDFHLocationIndexKey] unsignedIntegerValue];
+	((UIImageView *)self.aleBoardImageViews[location]).image = data[kDFHAleBoardImageKey];
+	((UILabel *)self.lastUpdatedLabels[location]).attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Last Updated", @"Prefix for last updated time"), [dateFormatter stringFromDate:data[kDFHLastModifiedKey]]] attributes:self.lastUpdatedLabelAttributes];
 }
 
 #pragma mark - Actions
