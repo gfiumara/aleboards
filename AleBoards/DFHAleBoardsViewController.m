@@ -76,6 +76,7 @@
 	UIScrollView *scrollView = [UIScrollView new];
 	scrollView.translatesAutoresizingMaskIntoConstraints = NO;
 	scrollView.pagingEnabled = YES;
+	scrollView.delegate = self;
 	[views addEntriesFromDictionary:NSDictionaryOfVariableBindings(scrollView)];
 	self.scrollView = scrollView;
 	[self.view addSubview:scrollView];
@@ -87,12 +88,12 @@
 	pageControl.numberOfPages = numberOfLocations;
 	pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
 	pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
+	[pageControl addTarget:self action:@selector(pageControlChangedPage:) forControlEvents:UIControlEventValueChanged];
 	[views addEntriesFromDictionary:NSDictionaryOfVariableBindings(pageControl)];
 	self.pageControl = pageControl;
 	[self.view addSubview:pageControl];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:pageControl attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl]|" options:0 metrics:nil views:views]];
-
 
 	NSDictionary *metrics = @{@"WIDTH" : @(CGRectGetHeight(self.view.frame) - 30.0), @"SEP" : @(15.0), @"SEP2" : @(30.0)};
 	self.venueNameLabels = [NSMutableArray arrayWithCapacity:numberOfLocations];
@@ -156,6 +157,28 @@
 		((UILabel *)self.venueNameLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:locationInfo[kDFHNameKey] attributes:self.venueNameLabelAttributes];
 		((UILabel *)self.lastUpdatedLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Never", @"Last updated label when it has not been updated") attributes:self.lastUpdatedLabelAttributes];
 	}
+}
+
+#pragma mark - Actions
+
+- (void)pageControlChangedPage:(UIPageControl *)pageControl
+{
+	/* Loop back to beginning */
+	if (pageControl.currentPage == pageControl.numberOfPages)
+		[pageControl setCurrentPage:0];
+	[self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width * pageControl.currentPage, 0) animated:YES];
+
+	[pageControl updateCurrentPageDisplay];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	/* Update the page when more than 50% of the previous/next page is visible */
+	CGFloat pageWidth = self.scrollView.frame.size.width;
+	NSUInteger page = lroundf(floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
+	self.pageControl.currentPage = page;
 }
 
 #pragma mark - Notifications

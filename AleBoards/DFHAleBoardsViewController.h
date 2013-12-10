@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DFHAleBoardsViewController : UIViewController
+@interface DFHAleBoardsViewController : UIViewController <UIScrollViewDelegate>
 
 @end
