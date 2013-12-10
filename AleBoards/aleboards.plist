@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>aleBoardURL</key>
+		<string>http://www.dogfishalehouse.com/media/albums/f.jpg</string>
+		<key>venueName</key>
+		<string>Falls Church, VA</string>
+		<key>venueURL</key>
+		<string>http://www.dogfishalehouse.com/locations/dfha-falls-church</string>
+		<key>phoneNumber</key>
+		<string>7035343342</string>
+		<key>address</key>
+		<string>6220 Leesburg Pike
+Seven Corners Shopping Center
+Falls Church, VA 22044</string>
+	</dict>
+	<dict>
+		<key>aleBoardURL</key>
+		<string>http://www.dogfishalehouse.com/media/albums/ff.jpg</string>
+		<key>venueName</key>
+		<string>Fairfax, VA</string>
+		<key>venueURL</key>
+		<string>http://www.dogfishalehouse.com/locations/dfha-fairfax</string>
+		<key>phoneNumber</key>
+		<string>7039611140</string>
+		<key>address</key>
+		<string>13041 Lee Jackson Memorial Highway
+Fairfax, VA 22033</string>
+	</dict>
+	<dict>
+		<key>aleBoardURL</key>
+		<string>http://www.dogfishalehouse.com/media/albums/g.jpg</string>
+		<key>venueName</key>
+		<string>Gaithersburg, MD</string>
+		<key>venueURL</key>
+		<string>http://www.dogfishalehouse.com/locations/dfha-gaithersburg</string>
+		<key>phoneNumber</key>
+		<string>3019634847</string>
+		<key>address</key>
+		<string>800 West Diamond Ave.
+Gaithersburg, MD 20878</string>
+	</dict>
+</array>
+</plist>
