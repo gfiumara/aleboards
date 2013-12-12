@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "UIColor+Dogfish.h"
 #import "UIFont+Dogfish.h"
 #import "DFHAleBoardDownloader.h"
 
@@ -24,6 +25,7 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 @property (nonatomic, strong) NSMutableArray *venueNameLabels;
 @property (nonatomic, strong) NSMutableArray *lastUpdatedLabels;
 @property (nonatomic, strong) NSMutableArray *aleBoardImageViews;
+@property (nonatomic, strong) NSMutableArray *infoButtons;
 /* Dynamic Type */
 @property (nonatomic, strong) NSDictionary *venueNameLabelAttributes;
 @property (nonatomic, strong) NSDictionary *lastUpdatedLabelAttributes;
@@ -91,7 +93,7 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 	pageControl.translatesAutoresizingMaskIntoConstraints = NO;
 	pageControl.numberOfPages = numberOfLocations;
 	pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-	pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
+	pageControl.currentPageIndicatorTintColor = [UIColor dogfishGreen];
 	[pageControl addTarget:self action:@selector(pageControlChangedPage:) forControlEvents:UIControlEventValueChanged];
 	[views addEntriesFromDictionary:NSDictionaryOfVariableBindings(pageControl)];
 	self.pageControl = pageControl;
@@ -103,6 +105,7 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 	self.venueNameLabels = [NSMutableArray arrayWithCapacity:numberOfLocations];
 	self.lastUpdatedLabels = [NSMutableArray arrayWithCapacity:numberOfLocations];
 	self.aleBoardImageViews = [NSMutableArray arrayWithCapacity:numberOfLocations];
+	self.infoButtons = [NSMutableArray arrayWithCapacity:numberOfLocations];
 	for (NSUInteger i = 0; i < numberOfLocations; i++) {
 		UILabel *venueNameLabel = [UILabel new];
 		venueNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -126,6 +129,16 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 		[scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[venueNameLabel%lu]-[aleBoardImageView%lu(==200)]-[lastUpdatedLabel%lu]", (long unsigned)i, (long unsigned)i, (long unsigned)i] options:0 metrics:nil views:views]];
 		[scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[aleBoardImageView%lu(==WIDTH)]", (long unsigned)i] options:0 metrics:metrics views:views]];
 		[scrollView addConstraint:[NSLayoutConstraint constraintWithItem:aleBoardImageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:scrollView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+
+		UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+		infoButton.translatesAutoresizingMaskIntoConstraints = NO;
+		infoButton.tag = i;
+		self.infoButtons[i] = infoButton;
+		[infoButton addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		[views setObject:infoButton forKey:[NSString stringWithFormat:@"infoButton%lu", (long unsigned)i]];
+		[scrollView addSubview:infoButton];
+		[scrollView addConstraint:[NSLayoutConstraint constraintWithItem:infoButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:lastUpdatedLabel attribute:NSLayoutAttributeTop multiplier:1 constant:27]];
+		[scrollView addConstraint:[NSLayoutConstraint constraintWithItem:infoButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:aleBoardImageView attribute:NSLayoutAttributeRight multiplier:1 constant:-10]];
 	}
 
 	/* 
@@ -200,6 +213,11 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 	[pageControl updateCurrentPageDisplay];
 }
 
+- (void)infoButtonPressed:(UIButton *)sender
+{
+
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -208,6 +226,18 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 	CGFloat pageWidth = self.scrollView.frame.size.width;
 	NSUInteger page = lroundf(floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
 	self.pageControl.currentPage = page;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+	for (UIButton *button in self.infoButtons)
+		[UIView animateWithDuration:0.1 animations:^(){ button.alpha = 0.0; }];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	for (UIButton *button in self.infoButtons)
+		[UIView animateWithDuration:0.7 animations:^(){ button.alpha = 1.0; }];
 }
 
 #pragma mark - Notifications
