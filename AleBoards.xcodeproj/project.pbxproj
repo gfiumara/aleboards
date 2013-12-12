@@ -20,6 +20,7 @@
 		084369B818593B48002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369B718593B47002B0F44 /* dogfish.ttf */; };
 		084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */; };
 		084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BD185940C2002B0F44 /* UIColor+Dogfish.m */; };
+		084369C11859451D002B0F44 /* DFHLocationInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,9 @@
 		084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Dogfish.m"; sourceTree = "<group>"; };
 		084369BC185940C2002B0F44 /* UIColor+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Dogfish.h"; sourceTree = "<group>"; };
 		084369BD185940C2002B0F44 /* UIColor+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Dogfish.m"; sourceTree = "<group>"; };
+		084369BF1859451D002B0F44 /* DFHLocationInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHLocationInformationViewController.h; sourceTree = "<group>"; };
+		084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHLocationInformationViewController.m; sourceTree = "<group>"; };
+		084369C2185946B8002B0F44 /* DFHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +98,13 @@
 			children = (
 				0843698C1857464B002B0F44 /* DFHAppDelegate.h */,
 				0843698D1857464B002B0F44 /* DFHAppDelegate.m */,
+				084369C2185946B8002B0F44 /* DFHConstants.h */,
 				0843698F1857464C002B0F44 /* Images.xcassets */,
 				084369841857464B002B0F44 /* Supporting Files */,
 				084369AC18574684002B0F44 /* DFHAleBoardsViewController.h */,
 				084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */,
+				084369BF1859451D002B0F44 /* DFHLocationInformationViewController.h */,
+				084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */,
 				084369AF18574B85002B0F44 /* DFHAleBoardDownloader.h */,
 				084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */,
 				084369B718593B47002B0F44 /* dogfish.ttf */,
@@ -197,6 +204,7 @@
 				084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */,
 				084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */,
 				084369AE18574684002B0F44 /* DFHAleBoardsViewController.m in Sources */,
+				084369C11859451D002B0F44 /* DFHLocationInformationViewController.m in Sources */,
 				0843698E1857464B002B0F44 /* DFHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

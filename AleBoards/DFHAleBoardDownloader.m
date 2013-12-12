@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "DFHConstants.h"
+
 #import "DFHAleBoardDownloader.h"
 
 @interface DFHAleBoardDownloader()
