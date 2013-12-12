@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "UIColor+Dogfish.h"
 #import "DFHAleBoardsViewController.h"
 
 #import "DFHAppDelegate.h"
@@ -18,6 +19,7 @@
 	self.window.backgroundColor = [UIColor whiteColor];
 
 	self.window.rootViewController = [DFHAleBoardsViewController new];
+	self.window.tintColor = [UIColor dogfishGreen];
 
 	[self.window makeKeyAndVisible];
 	return (YES);

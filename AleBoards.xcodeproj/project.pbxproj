@@ -19,6 +19,7 @@
 		084369B318574C25002B0F44 /* aleboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084369B218574C25002B0F44 /* aleboards.plist */; };
 		084369B818593B48002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369B718593B47002B0F44 /* dogfish.ttf */; };
 		084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */; };
+		084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BD185940C2002B0F44 /* UIColor+Dogfish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		084369B718593B47002B0F44 /* dogfish.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogfish.ttf; sourceTree = "<group>"; };
 		084369B918593BF2002B0F44 /* UIFont+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Dogfish.h"; sourceTree = "<group>"; };
 		084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Dogfish.m"; sourceTree = "<group>"; };
+		084369BC185940C2002B0F44 /* UIColor+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Dogfish.h"; sourceTree = "<group>"; };
+		084369BD185940C2002B0F44 /* UIColor+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Dogfish.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */,
 				084369B718593B47002B0F44 /* dogfish.ttf */,
 				084369B218574C25002B0F44 /* aleboards.plist */,
+				084369BC185940C2002B0F44 /* UIColor+Dogfish.h */,
+				084369BD185940C2002B0F44 /* UIColor+Dogfish.m */,
 				084369B918593BF2002B0F44 /* UIFont+Dogfish.h */,
 				084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */,
 			);
@@ -187,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */,
 				0843698A1857464B002B0F44 /* main.m in Sources */,
 				084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */,
 				084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */,
