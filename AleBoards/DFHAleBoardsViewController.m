@@ -10,6 +10,7 @@
 #import "UIFont+Dogfish.h"
 #import "DFHAleBoardDownloader.h"
 #import "DFHConstants.h"
+#import "DFHLocationInformationViewController.h"
 
 #import "DFHAleBoardsViewController.h"
 
@@ -220,7 +221,9 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 
 - (void)infoButtonPressed:(UIButton *)sender
 {
-
+	DFHLocationInformationViewController *vc = [DFHLocationInformationViewController new];
+	vc.locationInformation = self.downloader.aleBoardsData[sender.tag];
+	[self presentViewController:vc animated:YES completion:NULL];
 }
 
 #pragma mark - UIScrollViewDelegate
