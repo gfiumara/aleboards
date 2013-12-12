@@ -17,6 +17,8 @@
 		084369AE18574684002B0F44 /* DFHAleBoardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */; };
 		084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */; };
 		084369B318574C25002B0F44 /* aleboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084369B218574C25002B0F44 /* aleboards.plist */; };
+		084369B818593B48002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369B718593B47002B0F44 /* dogfish.ttf */; };
+		084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		084369AF18574B85002B0F44 /* DFHAleBoardDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHAleBoardDownloader.h; sourceTree = "<group>"; };
 		084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHAleBoardDownloader.m; sourceTree = "<group>"; };
 		084369B218574C25002B0F44 /* aleboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aleboards.plist; sourceTree = "<group>"; };
+		084369B718593B47002B0F44 /* dogfish.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogfish.ttf; sourceTree = "<group>"; };
+		084369B918593BF2002B0F44 /* UIFont+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Dogfish.h"; sourceTree = "<group>"; };
+		084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Dogfish.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +97,10 @@
 				084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */,
 				084369AF18574B85002B0F44 /* DFHAleBoardDownloader.h */,
 				084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */,
+				084369B718593B47002B0F44 /* dogfish.ttf */,
 				084369B218574C25002B0F44 /* aleboards.plist */,
+				084369B918593BF2002B0F44 /* UIFont+Dogfish.h */,
+				084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */,
 			);
 			path = AleBoards;
 			sourceTree = "<group>";
@@ -137,6 +145,11 @@
 				CLASSPREFIX = DFH;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Greg Fiumara";
+				TargetAttributes = {
+					084369791857464B002B0F44 = {
+						DevelopmentTeam = SELUQ362Q4;
+					};
+				};
 			};
 			buildConfigurationList = 084369751857464B002B0F44 /* Build configuration list for PBXProject "AleBoards" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -163,6 +176,7 @@
 				084369B318574C25002B0F44 /* aleboards.plist in Resources */,
 				084369881857464B002B0F44 /* InfoPlist.strings in Resources */,
 				084369901857464C002B0F44 /* Images.xcassets in Resources */,
+				084369B818593B48002B0F44 /* dogfish.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +189,7 @@
 			files = (
 				0843698A1857464B002B0F44 /* main.m in Sources */,
 				084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */,
+				084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */,
 				084369AE18574684002B0F44 /* DFHAleBoardsViewController.m in Sources */,
 				0843698E1857464B002B0F44 /* DFHAppDelegate.m in Sources */,
 			);
@@ -271,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AleBoards/AleBoards-Prefix.pch";
 				INFOPLIST_FILE = "AleBoards/AleBoards-Info.plist";
@@ -284,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AleBoards/AleBoards-Prefix.pch";
 				INFOPLIST_FILE = "AleBoards/AleBoards-Info.plist";

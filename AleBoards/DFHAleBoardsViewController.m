@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "UIFont+Dogfish.h"
 #import "DFHAleBoardDownloader.h"
 
 #import "DFHAleBoardsViewController.h"
@@ -216,8 +217,8 @@ static NSString * const kDFHAleBoardImageKey = @"image";
 	NSMutableParagraphStyle *centeredParagraphStyle = [[NSMutableParagraphStyle alloc] init];
 	centeredParagraphStyle.alignment = NSTextAlignmentCenter;
 
-	self.venueNameLabelAttributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline], NSParagraphStyleAttributeName : centeredParagraphStyle};
-	self.lastUpdatedLabelAttributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
+	self.venueNameLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline], NSParagraphStyleAttributeName : centeredParagraphStyle};
+	self.lastUpdatedLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
 
 	if (notification != nil)
 		[self refreshLabelsAndImages];
