@@ -64,7 +64,7 @@ static NSString * const kDFHAleboardsPlist = @"aleboards";
 		return;
 
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.aleBoardsData[index][kDFHAleBoardURL]]];
-	NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data,  NSURLResponse *response, NSError *error) {
+	[[self.session dataTaskWithRequest:request completionHandler:^(NSData *data,  NSURLResponse *response, NSError *error) {
 		if (completionHandler == nil)
 			return;
 
@@ -72,9 +72,7 @@ static NSString * const kDFHAleboardsPlist = @"aleboards";
 			completionHandler([UIImage imageWithData:data], [self.lastModifiedDateFormatter dateFromString:((NSHTTPURLResponse *)response).allHeaderFields[kDFHLastModifiedKey]], error);
 		else
 			completionHandler(nil, nil, error);
-	}];
-	[task resume];
-	NSLog(@"Running task with request %@", request);
+	}] resume];
 }
 
 
