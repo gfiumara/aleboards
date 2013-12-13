@@ -14,8 +14,8 @@
 @interface DFHLocationInformationViewController ()
 
 @property (nonatomic, weak) UILabel *nameLabel;
-@property (nonatomic, weak) UILabel *addressLabel;
-@property (nonatomic, weak) UILabel *phoneNumberLabel;
+@property (nonatomic, weak) UIButton *addressLabel;
+@property (nonatomic, weak) UIButton *phoneNumberLabel;
 @property (nonatomic, weak) UIButton *closeButton;
 
 /* Dynamic Type */
@@ -77,20 +77,21 @@
 	self.nameLabel = nameLabel;
 	[self.view addSubview:nameLabel];
 
-	UILabel *addressLabel = [UILabel new];
+	UIButton *addressLabel = [UIButton buttonWithType:UIButtonTypeCustom];
 	addressLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHAddressKey] attributes:self.detailsAttributes];
-	addressLabel.numberOfLines = 0;
-	[addressLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleAddressTap)]];
-	addressLabel.userInteractionEnabled = YES;
+	[addressLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHAddressKey] attributes:self.detailsAttributes] forState:UIControlStateNormal];
+	[addressLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHAddressKey] attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
+	addressLabel.titleLabel.numberOfLines = 0;
+	[addressLabel addTarget:self action:@selector(handleAddressTap) forControlEvents:UIControlEventTouchUpInside];
 	self.addressLabel = addressLabel;
 	[self.view addSubview:addressLabel];
 
-	UILabel *phoneNumberLabel = [UILabel new];
+	UIButton *phoneNumberLabel = [UIButton buttonWithType:UIButtonTypeCustom];
 	phoneNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributes];
-	[phoneNumberLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePhoneNumberTap)]];
-	phoneNumberLabel.userInteractionEnabled = YES;
+	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributes] forState:UIControlStateNormal];
+	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
+	[phoneNumberLabel addTarget:self action:@selector(handlePhoneNumberTap) forControlEvents:UIControlEventTouchUpInside];
+	phoneNumberLabel.titleLabel.numberOfLines = 0;
 	self.phoneNumberLabel = phoneNumberLabel;
 	[self.view addSubview:phoneNumberLabel];
 
@@ -141,14 +142,14 @@
 	UIActionSheet *actionSheet = [UIActionSheet new];
 	actionSheet.tag = kDFHActionSheetTagPhone;
 	actionSheet.delegate = self;
-	[actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@ %@...", NSLocalizedString(@"Call", @"Prefix for ActionSheet button to call location"), self.phoneNumberLabel.text]];
+	[actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@ %@...", NSLocalizedString(@"Call", @"Prefix for ActionSheet button to call location"), self.phoneNumberLabel.titleLabel.text]];
 	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Title for Cancel button on ActionSheet")];
 	[actionSheet showInView:self.view];
 }
 
 - (void)callLocation
 {
-	NSURL *telephoneNumber = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", self.phoneNumberLabel.text]];
+	NSURL *telephoneNumber = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", self.phoneNumberLabel.titleLabel.text]];
 	if ([[UIApplication sharedApplication] canOpenURL:telephoneNumber])
 		[[UIApplication sharedApplication] openURL:telephoneNumber];
 }
@@ -182,13 +183,15 @@
 	
 	self.nameLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline]};
 	self.detailsAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
-	self.detailsAttributesSelected = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [UIColor dogfishGreen]};
+	self.detailsAttributesSelected = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle, NSForegroundColorAttributeName : [UIColor dogfishGreen]};
 	self.closeButtonAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1]};
 
 	if (notification != nil) {
 		self.nameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.nameLabel.attributedText.string attributes:self.nameLabelAttributes];
-		self.addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.addressLabel.attributedText.string attributes:self.detailsAttributes];
-		self.phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.phoneNumberLabel.attributedText.string attributes:self.detailsAttributes];
+		[self.addressLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.addressLabel.titleLabel.text attributes:self.detailsAttributes] forState:UIControlStateNormal];
+		[self.addressLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.addressLabel.titleLabel.text attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
+		[self.phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.phoneNumberLabel.titleLabel.text attributes:self.detailsAttributes] forState:UIControlStateNormal];
+		[self.phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.phoneNumberLabel.titleLabel.text attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
 		[self.closeButton setAttributedTitle:[[NSAttributedString alloc] initWithString:[self.closeButton attributedTitleForState:UIControlStateNormal].string attributes:self.closeButtonAttributes] forState:UIControlStateNormal];
 	}
 }
