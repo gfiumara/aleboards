@@ -88,8 +88,8 @@
 
 	UIButton *phoneNumberLabel = [UIButton buttonWithType:UIButtonTypeCustom];
 	phoneNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributes] forState:UIControlStateNormal];
-	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
+	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:[DFHLocationInformationViewController formatPhoneNumber:self.locationInformation[kDFHPhoneNumberKey]] attributes:self.detailsAttributes] forState:UIControlStateNormal];
+	[phoneNumberLabel setAttributedTitle:[[NSAttributedString alloc] initWithString:[DFHLocationInformationViewController formatPhoneNumber:self.locationInformation[kDFHPhoneNumberKey]] attributes:self.detailsAttributesSelected] forState:UIControlStateHighlighted];
 	[phoneNumberLabel addTarget:self action:@selector(handlePhoneNumberTap) forControlEvents:UIControlEventTouchUpInside];
 	phoneNumberLabel.titleLabel.numberOfLines = 0;
 	self.phoneNumberLabel = phoneNumberLabel;
@@ -115,6 +115,14 @@
 
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[nameLabel]" options:0 metrics:nil views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[phoneNumberLabel]-[closeButton]-|" options:0 metrics:nil views:views]];
+}
+
++ (NSString *)formatPhoneNumber:(NSString *)unformattedPhoneNumber
+{
+	if ([unformattedPhoneNumber length] != 10)
+		return (unformattedPhoneNumber);
+
+	return ([NSString stringWithFormat:@"(%@) %@-%@", [unformattedPhoneNumber substringWithRange:NSMakeRange(0, 3)], [unformattedPhoneNumber substringWithRange:NSMakeRange(3, 3)], [unformattedPhoneNumber substringWithRange:NSMakeRange(6, 4)]]);
 }
 
 #pragma mark - Actions
@@ -149,7 +157,7 @@
 
 - (void)callLocation
 {
-	NSURL *telephoneNumber = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", self.phoneNumberLabel.titleLabel.text]];
+	NSURL *telephoneNumber = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", self.locationInformation[kDFHPhoneNumberKey]]];
 	if ([[UIApplication sharedApplication] canOpenURL:telephoneNumber])
 		[[UIApplication sharedApplication] openURL:telephoneNumber];
 }
