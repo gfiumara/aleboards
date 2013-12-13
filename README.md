@@ -5,8 +5,8 @@ Reimplementation of Dogfish Head Alehouse's [Aleboards](https://itunes.apple.com
 
 The behavior is nearly identical to the original app. Swipe between the different locations.
 
-![Main Interface](gfx/ss1.png "Main Interface")
+![Main Interface](AleBoards/resources/ss1.png "Main Interface")
 
 Press the information button to view the details.  Tapping the address will map the location in Apple or Google Maps. Tapping the phone number will call the location. Tapping the logo will go to the location's website.
 
-![Location Detail Interface](gfx/ss2.png "Location Detail Interface")
+![Location Detail Interface](AleBoards/resources/ss2.png "Location Detail Interface")

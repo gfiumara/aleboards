@@ -10,19 +10,19 @@
 		0843697E1857464B002B0F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843697D1857464B002B0F44 /* Foundation.framework */; };
 		084369801857464B002B0F44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843697F1857464B002B0F44 /* CoreGraphics.framework */; };
 		084369821857464B002B0F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084369811857464B002B0F44 /* UIKit.framework */; };
-		084369881857464B002B0F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 084369861857464B002B0F44 /* InfoPlist.strings */; };
-		0843698A1857464B002B0F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369891857464B002B0F44 /* main.m */; };
-		0843698E1857464B002B0F44 /* DFHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0843698D1857464B002B0F44 /* DFHAppDelegate.m */; };
-		084369901857464C002B0F44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0843698F1857464C002B0F44 /* Images.xcassets */; };
-		084369AE18574684002B0F44 /* DFHAleBoardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */; };
-		084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */; };
-		084369B318574C25002B0F44 /* aleboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084369B218574C25002B0F44 /* aleboards.plist */; };
-		084369B818593B48002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369B718593B47002B0F44 /* dogfish.ttf */; };
-		084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */; };
-		084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BD185940C2002B0F44 /* UIColor+Dogfish.m */; };
-		084369C11859451D002B0F44 /* DFHLocationInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */; };
-		084369C4185AA756002B0F44 /* dfha_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369C3185AA756002B0F44 /* dfha_logo@2x.png */; };
-		084369C6185AA8CB002B0F44 /* dfha_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369C5185AA8CB002B0F44 /* dfha_logo.png */; };
+		084369CF185B59CD002B0F44 /* UIColor+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369CC185B59CD002B0F44 /* UIColor+Dogfish.m */; };
+		084369D0185B59CD002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369CE185B59CD002B0F44 /* UIFont+Dogfish.m */; };
+		084369D5185B59F0002B0F44 /* DFHAleBoardDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369D2185B59F0002B0F44 /* DFHAleBoardDownloader.m */; };
+		084369D6185B59F0002B0F44 /* DFHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369D4185B59F0002B0F44 /* DFHAppDelegate.m */; };
+		084369DB185B59FB002B0F44 /* DFHAleBoardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369D8185B59FB002B0F44 /* DFHAleBoardsViewController.m */; };
+		084369DC185B59FB002B0F44 /* DFHLocationInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369DA185B59FB002B0F44 /* DFHLocationInformationViewController.m */; };
+		084369E4185B5A07002B0F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 084369E0185B5A07002B0F44 /* InfoPlist.strings */; };
+		084369E5185B5A07002B0F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369E2185B5A07002B0F44 /* main.m */; };
+		084369EB185B5A15002B0F44 /* aleboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084369E6185B5A15002B0F44 /* aleboards.plist */; };
+		084369EC185B5A15002B0F44 /* dfha_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369E7185B5A15002B0F44 /* dfha_logo.png */; };
+		084369ED185B5A15002B0F44 /* dfha_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369E8185B5A15002B0F44 /* dfha_logo@2x.png */; };
+		084369EE185B5A15002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369E9185B5A15002B0F44 /* dogfish.ttf */; };
+		084369EF185B5A15002B0F44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 084369EA185B5A15002B0F44 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,29 +30,29 @@
 		0843697D1857464B002B0F44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0843697F1857464B002B0F44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		084369811857464B002B0F44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		084369851857464B002B0F44 /* AleBoards-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AleBoards-Info.plist"; sourceTree = "<group>"; };
-		084369871857464B002B0F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		084369891857464B002B0F44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0843698B1857464B002B0F44 /* AleBoards-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AleBoards-Prefix.pch"; sourceTree = "<group>"; };
-		0843698C1857464B002B0F44 /* DFHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFHAppDelegate.h; sourceTree = "<group>"; };
-		0843698D1857464B002B0F44 /* DFHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFHAppDelegate.m; sourceTree = "<group>"; };
-		0843698F1857464C002B0F44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		084369961857464C002B0F44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		084369AC18574684002B0F44 /* DFHAleBoardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHAleBoardsViewController.h; sourceTree = "<group>"; };
-		084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHAleBoardsViewController.m; sourceTree = "<group>"; };
-		084369AF18574B85002B0F44 /* DFHAleBoardDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHAleBoardDownloader.h; sourceTree = "<group>"; };
-		084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHAleBoardDownloader.m; sourceTree = "<group>"; };
-		084369B218574C25002B0F44 /* aleboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aleboards.plist; sourceTree = "<group>"; };
-		084369B718593B47002B0F44 /* dogfish.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dogfish.ttf; sourceTree = "<group>"; };
-		084369B918593BF2002B0F44 /* UIFont+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Dogfish.h"; sourceTree = "<group>"; };
-		084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Dogfish.m"; sourceTree = "<group>"; };
-		084369BC185940C2002B0F44 /* UIColor+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Dogfish.h"; sourceTree = "<group>"; };
-		084369BD185940C2002B0F44 /* UIColor+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Dogfish.m"; sourceTree = "<group>"; };
-		084369BF1859451D002B0F44 /* DFHLocationInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHLocationInformationViewController.h; sourceTree = "<group>"; };
-		084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHLocationInformationViewController.m; sourceTree = "<group>"; };
 		084369C2185946B8002B0F44 /* DFHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHConstants.h; sourceTree = "<group>"; };
-		084369C3185AA756002B0F44 /* dfha_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dfha_logo@2x.png"; sourceTree = "<group>"; };
-		084369C5185AA8CB002B0F44 /* dfha_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dfha_logo.png; sourceTree = "<group>"; };
+		084369CB185B59CD002B0F44 /* UIColor+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Dogfish.h"; path = "categories/UIColor+Dogfish.h"; sourceTree = "<group>"; };
+		084369CC185B59CD002B0F44 /* UIColor+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Dogfish.m"; path = "categories/UIColor+Dogfish.m"; sourceTree = "<group>"; };
+		084369CD185B59CD002B0F44 /* UIFont+Dogfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Dogfish.h"; path = "categories/UIFont+Dogfish.h"; sourceTree = "<group>"; };
+		084369CE185B59CD002B0F44 /* UIFont+Dogfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Dogfish.m"; path = "categories/UIFont+Dogfish.m"; sourceTree = "<group>"; };
+		084369D1185B59F0002B0F44 /* DFHAleBoardDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFHAleBoardDownloader.h; path = models/DFHAleBoardDownloader.h; sourceTree = "<group>"; };
+		084369D2185B59F0002B0F44 /* DFHAleBoardDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFHAleBoardDownloader.m; path = models/DFHAleBoardDownloader.m; sourceTree = "<group>"; };
+		084369D3185B59F0002B0F44 /* DFHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFHAppDelegate.h; path = models/DFHAppDelegate.h; sourceTree = "<group>"; };
+		084369D4185B59F0002B0F44 /* DFHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFHAppDelegate.m; path = models/DFHAppDelegate.m; sourceTree = "<group>"; };
+		084369D7185B59FB002B0F44 /* DFHAleBoardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFHAleBoardsViewController.h; path = viewcontrollers/DFHAleBoardsViewController.h; sourceTree = "<group>"; };
+		084369D8185B59FB002B0F44 /* DFHAleBoardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFHAleBoardsViewController.m; path = viewcontrollers/DFHAleBoardsViewController.m; sourceTree = "<group>"; };
+		084369D9185B59FB002B0F44 /* DFHLocationInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFHLocationInformationViewController.h; path = viewcontrollers/DFHLocationInformationViewController.h; sourceTree = "<group>"; };
+		084369DA185B59FB002B0F44 /* DFHLocationInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFHLocationInformationViewController.m; path = viewcontrollers/DFHLocationInformationViewController.m; sourceTree = "<group>"; };
+		084369E1185B5A07002B0F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		084369E2185B5A07002B0F44 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = supporting_files/main.m; sourceTree = "<group>"; };
+		084369E6185B5A15002B0F44 /* aleboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = aleboards.plist; path = resources/aleboards.plist; sourceTree = "<group>"; };
+		084369E7185B5A15002B0F44 /* dfha_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dfha_logo.png; path = resources/dfha_logo.png; sourceTree = "<group>"; };
+		084369E8185B5A15002B0F44 /* dfha_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dfha_logo@2x.png"; path = "resources/dfha_logo@2x.png"; sourceTree = "<group>"; };
+		084369E9185B5A15002B0F44 /* dogfish.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dogfish.ttf; path = resources/dogfish.ttf; sourceTree = "<group>"; };
+		084369EA185B5A15002B0F44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
+		084369F0185B5B04002B0F44 /* AleBoards-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AleBoards-Info.plist"; sourceTree = "<group>"; };
+		084369F1185B5B04002B0F44 /* AleBoards-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AleBoards-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				084369831857464B002B0F44 /* AleBoards */,
+				084369841857464B002B0F44 /* Supporting Files */,
 				0843697C1857464B002B0F44 /* Frameworks */,
 				0843697B1857464B002B0F44 /* Products */,
 			);
@@ -100,25 +101,11 @@
 		084369831857464B002B0F44 /* AleBoards */ = {
 			isa = PBXGroup;
 			children = (
-				0843698C1857464B002B0F44 /* DFHAppDelegate.h */,
-				0843698D1857464B002B0F44 /* DFHAppDelegate.m */,
 				084369C2185946B8002B0F44 /* DFHConstants.h */,
-				0843698F1857464C002B0F44 /* Images.xcassets */,
-				084369841857464B002B0F44 /* Supporting Files */,
-				084369AC18574684002B0F44 /* DFHAleBoardsViewController.h */,
-				084369AD18574684002B0F44 /* DFHAleBoardsViewController.m */,
-				084369BF1859451D002B0F44 /* DFHLocationInformationViewController.h */,
-				084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */,
-				084369AF18574B85002B0F44 /* DFHAleBoardDownloader.h */,
-				084369B018574B85002B0F44 /* DFHAleBoardDownloader.m */,
-				084369B718593B47002B0F44 /* dogfish.ttf */,
-				084369B218574C25002B0F44 /* aleboards.plist */,
-				084369BC185940C2002B0F44 /* UIColor+Dogfish.h */,
-				084369BD185940C2002B0F44 /* UIColor+Dogfish.m */,
-				084369B918593BF2002B0F44 /* UIFont+Dogfish.h */,
-				084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */,
-				084369C5185AA8CB002B0F44 /* dfha_logo.png */,
-				084369C3185AA756002B0F44 /* dfha_logo@2x.png */,
+				084369C7185B579F002B0F44 /* Categories */,
+				084369CA185B5861002B0F44 /* Models */,
+				084369C8185B57C0002B0F44 /* ViewControllers */,
+				084369C9185B57DF002B0F44 /* Resources */,
 			);
 			path = AleBoards;
 			sourceTree = "<group>";
@@ -126,12 +113,67 @@
 		084369841857464B002B0F44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				084369851857464B002B0F44 /* AleBoards-Info.plist */,
-				084369861857464B002B0F44 /* InfoPlist.strings */,
-				084369891857464B002B0F44 /* main.m */,
-				0843698B1857464B002B0F44 /* AleBoards-Prefix.pch */,
+				084369F0185B5B04002B0F44 /* AleBoards-Info.plist */,
+				084369F1185B5B04002B0F44 /* AleBoards-Prefix.pch */,
+				084369DF185B5A07002B0F44 /* en.lproj */,
+				084369E2185B5A07002B0F44 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = AleBoards;
+			sourceTree = "<group>";
+		};
+		084369C7185B579F002B0F44 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				084369CB185B59CD002B0F44 /* UIColor+Dogfish.h */,
+				084369CC185B59CD002B0F44 /* UIColor+Dogfish.m */,
+				084369CD185B59CD002B0F44 /* UIFont+Dogfish.h */,
+				084369CE185B59CD002B0F44 /* UIFont+Dogfish.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		084369C8185B57C0002B0F44 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				084369D7185B59FB002B0F44 /* DFHAleBoardsViewController.h */,
+				084369D8185B59FB002B0F44 /* DFHAleBoardsViewController.m */,
+				084369D9185B59FB002B0F44 /* DFHLocationInformationViewController.h */,
+				084369DA185B59FB002B0F44 /* DFHLocationInformationViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		084369C9185B57DF002B0F44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				084369E6185B5A15002B0F44 /* aleboards.plist */,
+				084369E7185B5A15002B0F44 /* dfha_logo.png */,
+				084369E8185B5A15002B0F44 /* dfha_logo@2x.png */,
+				084369E9185B5A15002B0F44 /* dogfish.ttf */,
+				084369EA185B5A15002B0F44 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		084369CA185B5861002B0F44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				084369D3185B59F0002B0F44 /* DFHAppDelegate.h */,
+				084369D4185B59F0002B0F44 /* DFHAppDelegate.m */,
+				084369D1185B59F0002B0F44 /* DFHAleBoardDownloader.h */,
+				084369D2185B59F0002B0F44 /* DFHAleBoardDownloader.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		084369DF185B5A07002B0F44 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				084369E0185B5A07002B0F44 /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = supporting_files/en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,12 +233,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084369B318574C25002B0F44 /* aleboards.plist in Resources */,
-				084369C4185AA756002B0F44 /* dfha_logo@2x.png in Resources */,
-				084369881857464B002B0F44 /* InfoPlist.strings in Resources */,
-				084369901857464C002B0F44 /* Images.xcassets in Resources */,
-				084369B818593B48002B0F44 /* dogfish.ttf in Resources */,
-				084369C6185AA8CB002B0F44 /* dfha_logo.png in Resources */,
+				084369EB185B5A15002B0F44 /* aleboards.plist in Resources */,
+				084369E4185B5A07002B0F44 /* InfoPlist.strings in Resources */,
+				084369EF185B5A15002B0F44 /* Images.xcassets in Resources */,
+				084369EE185B5A15002B0F44 /* dogfish.ttf in Resources */,
+				084369EC185B5A15002B0F44 /* dfha_logo.png in Resources */,
+				084369ED185B5A15002B0F44 /* dfha_logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,23 +249,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */,
-				0843698A1857464B002B0F44 /* main.m in Sources */,
-				084369B118574B85002B0F44 /* DFHAleBoardDownloader.m in Sources */,
-				084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */,
-				084369AE18574684002B0F44 /* DFHAleBoardsViewController.m in Sources */,
-				084369C11859451D002B0F44 /* DFHLocationInformationViewController.m in Sources */,
-				0843698E1857464B002B0F44 /* DFHAppDelegate.m in Sources */,
+				084369CF185B59CD002B0F44 /* UIColor+Dogfish.m in Sources */,
+				084369DB185B59FB002B0F44 /* DFHAleBoardsViewController.m in Sources */,
+				084369D0185B59CD002B0F44 /* UIFont+Dogfish.m in Sources */,
+				084369D5185B59F0002B0F44 /* DFHAleBoardDownloader.m in Sources */,
+				084369DC185B59FB002B0F44 /* DFHLocationInformationViewController.m in Sources */,
+				084369E5185B5A07002B0F44 /* main.m in Sources */,
+				084369D6185B59F0002B0F44 /* DFHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		084369861857464B002B0F44 /* InfoPlist.strings */ = {
+		084369E0185B5A07002B0F44 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				084369871857464B002B0F44 /* en */,
+				084369E1185B5A07002B0F44 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -311,7 +353,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AleBoards/AleBoards-Prefix.pch";
-				INFOPLIST_FILE = "AleBoards/AleBoards-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AleBoards/AleBoards-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -325,7 +367,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AleBoards/AleBoards-Prefix.pch";
-				INFOPLIST_FILE = "AleBoards/AleBoards-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AleBoards/AleBoards-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -350,6 +392,7 @@
 				084369A81857464C002B0F44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
