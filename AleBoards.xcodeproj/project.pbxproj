@@ -21,6 +21,8 @@
 		084369BB18593BF2002B0F44 /* UIFont+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */; };
 		084369BE185940C2002B0F44 /* UIColor+Dogfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369BD185940C2002B0F44 /* UIColor+Dogfish.m */; };
 		084369C11859451D002B0F44 /* DFHLocationInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */; };
+		084369C4185AA756002B0F44 /* dfha_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369C3185AA756002B0F44 /* dfha_logo@2x.png */; };
+		084369C6185AA8CB002B0F44 /* dfha_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 084369C5185AA8CB002B0F44 /* dfha_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		084369BF1859451D002B0F44 /* DFHLocationInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHLocationInformationViewController.h; sourceTree = "<group>"; };
 		084369C01859451D002B0F44 /* DFHLocationInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFHLocationInformationViewController.m; sourceTree = "<group>"; };
 		084369C2185946B8002B0F44 /* DFHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFHConstants.h; sourceTree = "<group>"; };
+		084369C3185AA756002B0F44 /* dfha_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dfha_logo@2x.png"; sourceTree = "<group>"; };
+		084369C5185AA8CB002B0F44 /* dfha_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dfha_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				084369BD185940C2002B0F44 /* UIColor+Dogfish.m */,
 				084369B918593BF2002B0F44 /* UIFont+Dogfish.h */,
 				084369BA18593BF2002B0F44 /* UIFont+Dogfish.m */,
+				084369C5185AA8CB002B0F44 /* dfha_logo.png */,
+				084369C3185AA756002B0F44 /* dfha_logo@2x.png */,
 			);
 			path = AleBoards;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				084369B318574C25002B0F44 /* aleboards.plist in Resources */,
+				084369C4185AA756002B0F44 /* dfha_logo@2x.png in Resources */,
 				084369881857464B002B0F44 /* InfoPlist.strings in Resources */,
 				084369901857464C002B0F44 /* Images.xcassets in Resources */,
 				084369B818593B48002B0F44 /* dogfish.ttf in Resources */,
+				084369C6185AA8CB002B0F44 /* dfha_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

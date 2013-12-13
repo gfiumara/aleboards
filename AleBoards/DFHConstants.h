@@ -28,4 +28,11 @@ static NSString * const kDFHLocationLatitude = @"latitude";
 /** Key for longitude decimal number of the location. */
 static NSString * const kDFHLocationLongitude = @"longitude";
 
+/*
+ * Resources
+ */
+
+/** Name of the logo for Dogfish Head Alehouse */
+static NSString * const kDFHDogfishLogoName = @"dfha_logo.png";
+
 #endif /* __DHF_CONSTANTS_H__ */

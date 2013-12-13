@@ -71,6 +71,12 @@
 {
 	self.view.backgroundColor = [UIColor whiteColor];
 
+	UIButton *logoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	logoButton.translatesAutoresizingMaskIntoConstraints = NO;
+	[logoButton addTarget:self action:@selector(openWebsite:) forControlEvents:UIControlEventTouchUpInside];
+	[logoButton setImage:[UIImage imageNamed:kDFHDogfishLogoName] forState:UIControlStateNormal];
+	[self.view addSubview:logoButton];
+
 	UILabel *nameLabel = [UILabel new];
 	nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	nameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHNameKey] attributes:self.nameLabelAttributes];
@@ -102,9 +108,10 @@
 	self.closeButton = closeButton;
 	[self.view addSubview:closeButton];
 
-	NSDictionary *views = NSDictionaryOfVariableBindings(nameLabel, addressLabel, phoneNumberLabel, closeButton);
+	NSDictionary *views = NSDictionaryOfVariableBindings(nameLabel, addressLabel, phoneNumberLabel, closeButton, logoButton);
 
 	/* Centering */
+	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:logoButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:phoneNumberLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
@@ -113,7 +120,8 @@
 	/* Vertical center of address label */
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
 
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[nameLabel]" options:0 metrics:nil views:views]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[logoButton(==105)]" options:0 metrics:nil views:views]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[logoButton(==60)]-[nameLabel]" options:0 metrics:nil views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[phoneNumberLabel]-[closeButton]-|" options:0 metrics:nil views:views]];
 }
 
@@ -140,6 +148,11 @@
 - (void)textReleased:(UILabel *)sender
 {
 	sender.attributedText = [[NSAttributedString alloc] initWithString:sender.attributedText.string attributes:self.detailsAttributes];
+}
+
+- (void)openWebsite:(UIButton *)sender
+{
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.locationInformation[kDFHWebsite]]];
 }
 
 - (void)handlePhoneNumberTap
