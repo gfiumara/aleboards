@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Greg Fiumara. All rights reserved.
 //
 
+#import "UIColor+Dogfish.h"
 #import "UIFont+Dogfish.h"
 #import "DFHConstants.h"
 #import "DFHLocationInformationViewController.h"
@@ -19,9 +20,13 @@
 
 /* Dynamic Type */
 @property (nonatomic, strong) NSDictionary *nameLabelAttributes;
-@property (nonatomic, strong) NSDictionary *addressLabelAttributes;
-@property (nonatomic, strong) NSDictionary *phoneNumberLabelAttributes;
+@property (nonatomic, strong) NSDictionary *detailsAttributes;
+@property (nonatomic, strong) NSDictionary *detailsAttributesSelected;
 @property (nonatomic, strong) NSDictionary *closeButtonAttributes;
+
+/* Action Sheet */
+@property (nonatomic, assign) NSUInteger googleMapsActionSheetIndex;
+@property (nonatomic, assign) NSUInteger appleMapsActionSheetIndex;
 
 @end
 
@@ -74,14 +79,18 @@
 
 	UILabel *addressLabel = [UILabel new];
 	addressLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHAddressKey] attributes:self.addressLabelAttributes];
+	addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHAddressKey] attributes:self.detailsAttributes];
 	addressLabel.numberOfLines = 0;
+	[addressLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleAddressTap)]];
+	addressLabel.userInteractionEnabled = YES;
 	self.addressLabel = addressLabel;
 	[self.view addSubview:addressLabel];
 
 	UILabel *phoneNumberLabel = [UILabel new];
 	phoneNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.phoneNumberLabelAttributes];
+	phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.locationInformation[kDFHPhoneNumberKey] attributes:self.detailsAttributes];
+	[phoneNumberLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePhoneNumberTap)]];
+	phoneNumberLabel.userInteractionEnabled = YES;
 	self.phoneNumberLabel = phoneNumberLabel;
 	[self.view addSubview:phoneNumberLabel];
 
@@ -114,6 +123,29 @@
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)textPressed:(UILabel *)sender
+{
+	sender.attributedText = [[NSAttributedString alloc] initWithString:sender.attributedText.string attributes:self.detailsAttributesSelected];
+}
+
+- (void)textReleased:(UILabel *)sender
+{
+	sender.attributedText = [[NSAttributedString alloc] initWithString:sender.attributedText.string attributes:self.detailsAttributes];
+}
+
+- (void)handlePhoneNumberTap
+{
+	if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
+		return;
+
+	UIActionSheet *actionSheet = [UIActionSheet new];
+	actionSheet.tag = kDFHActionSheetTagPhone;
+	actionSheet.delegate = self;
+	[actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@ %@...", NSLocalizedString(@"Call", @"Prefix for ActionSheet button to call location"), self.phoneNumberLabel.text]];
+	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Title for Cancel button on ActionSheet")];
+	[actionSheet showInView:self.view];
+}
+
 - (void)callLocation
 {
 	NSURL *telephoneNumber = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", self.phoneNumberLabel.text]];
@@ -123,15 +155,22 @@
 
 - (void)mapLocationInAppleMaps
 {
-	/* TODO */
+	NSString *addressString = [[self.locationInformation[kDFHAddressKey] stringByReplacingOccurrencesOfString:@"\n" withString:@", "] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];;
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&ll=%@,%@", addressString, [self.locationInformation[kDFHLocationLatitude] stringValue], [self.locationInformation[kDFHLocationLongitude] stringValue]]]];
+}
+
+- (BOOL)googleMapsInstalled
+{
+	return ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]);
 }
 
 - (void)mapLocationInGoogleMaps
 {
-	if (![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]])
+	if (![self googleMapsInstalled])
 		return;
-	
-	/* TODO */
+
+	NSString *addressString = [[self.locationInformation[kDFHAddressKey] stringByReplacingOccurrencesOfString:@"\n" withString:@", "] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];;
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"comgooglemaps:///?daddr=%@&center=%@,%@", addressString, [self.locationInformation[kDFHLocationLatitude] stringValue], [self.locationInformation[kDFHLocationLongitude] stringValue]]]];
 }
 
 #pragma mark - Notifications
@@ -142,15 +181,51 @@
 	centeredParagraphStyle.alignment = NSTextAlignmentCenter;
 	
 	self.nameLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline]};
-	self.addressLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
-	self.phoneNumberLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1]};
+	self.detailsAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
+	self.detailsAttributesSelected = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSForegroundColorAttributeName : [UIColor dogfishGreen]};
 	self.closeButtonAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1]};
 
 	if (notification != nil) {
 		self.nameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.nameLabel.attributedText.string attributes:self.nameLabelAttributes];
-		self.addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.addressLabel.attributedText.string attributes:self.addressLabelAttributes];
-		self.phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.phoneNumberLabel.attributedText.string attributes:self.phoneNumberLabelAttributes];
+		self.addressLabel.attributedText = [[NSAttributedString alloc] initWithString:self.addressLabel.attributedText.string attributes:self.detailsAttributes];
+		self.phoneNumberLabel.attributedText = [[NSAttributedString alloc] initWithString:self.phoneNumberLabel.attributedText.string attributes:self.detailsAttributes];
 		[self.closeButton setAttributedTitle:[[NSAttributedString alloc] initWithString:[self.closeButton attributedTitleForState:UIControlStateNormal].string attributes:self.closeButtonAttributes] forState:UIControlStateNormal];
+	}
+}
+
+#pragma mark - Maps Action Sheet
+
+- (void)handleAddressTap
+{
+	if (![self googleMapsInstalled])
+		[self mapLocationInAppleMaps];
+	else {
+		UIActionSheet *actionSheet = [UIActionSheet new];
+		actionSheet.delegate = self;
+		actionSheet.tag = kDFHActionSheetTagMaps;
+		self.googleMapsActionSheetIndex = [actionSheet addButtonWithTitle:NSLocalizedString(@"Open in Google Maps...", @"Title for button to open map in Google Maps")];
+		self.appleMapsActionSheetIndex = [actionSheet addButtonWithTitle:NSLocalizedString(@"Open in Apple Maps...", @"Title for button to open map in Apple Maps")];
+		actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Title for Cancel button on ActionSheet")];
+		[actionSheet showInView:self.view];
+	}
+}
+
+static const NSUInteger kDFHActionSheetTagMaps = 1;
+static const NSUInteger kDFHActionSheetTagPhone = 2;
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == actionSheet.cancelButtonIndex)
+		return;
+	switch (actionSheet.tag) {
+	case kDFHActionSheetTagMaps:
+		if (buttonIndex == self.googleMapsActionSheetIndex)
+			[self mapLocationInGoogleMaps];
+		else if (buttonIndex == self.appleMapsActionSheetIndex)
+			[self mapLocationInAppleMaps];
+		break;
+	case kDFHActionSheetTagPhone:
+		[self callLocation];
+		break;
 	}
 }
 

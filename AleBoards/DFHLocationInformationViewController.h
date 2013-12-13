@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DFHLocationInformationViewController : UIViewController
+@interface DFHLocationInformationViewController : UIViewController <UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSDictionary *locationInformation;
 
