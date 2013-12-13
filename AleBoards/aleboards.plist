@@ -15,6 +15,10 @@
 		<string>6220 Leesburg Pike
 Seven Corners Shopping Center
 Falls Church, VA 22044</string>
+		<key>latitude</key>
+		<real>38.867014</real>
+		<key>longitude</key>
+		<real>-77.15146</real>
 	</dict>
 	<dict>
 		<key>aleBoardURL</key>
@@ -28,6 +32,10 @@ Falls Church, VA 22044</string>
 		<key>address</key>
 		<string>13041 Lee Jackson Memorial Highway
 Fairfax, VA 22033</string>
+		<key>latitude</key>
+		<real>38.879886</real>
+		<key>longitude</key>
+		<real>-77.397402</real>
 	</dict>
 	<dict>
 		<key>aleBoardURL</key>
@@ -41,6 +49,10 @@ Fairfax, VA 22033</string>
 		<key>address</key>
 		<string>800 West Diamond Ave.
 Gaithersburg, MD 20878</string>
+		<key>latitude</key>
+		<real>39.14192</real>
+		<key>longitude</key>
+		<real>-77.21693399999999</real>
 	</dict>
 </array>
 </plist>

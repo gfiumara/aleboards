@@ -23,5 +23,9 @@ static NSString * const kDFHAddressKey = @"address";
 static NSString * const kDFHWebsite = @"website";
 /** Key for string of the URL to the AleBoard image in all dictionaries. */
 static NSString * const kDFHAleBoardURL = @"aleBoardURL";
+/** Key for latitude decimal number of the location. */
+static NSString * const kDFHLocationLatitude = @"latitude";
+/** Key for longitude decimal number of the location. */
+static NSString * const kDFHLocationLongitude = @"longitude";
 
 #endif /* __DHF_CONSTANTS_H__ */
