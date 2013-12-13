@@ -182,8 +182,8 @@
 	centeredParagraphStyle.alignment = NSTextAlignmentCenter;
 	
 	self.nameLabelAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline]};
-	self.detailsAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle};
-	self.detailsAttributesSelected = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1], NSParagraphStyleAttributeName : centeredParagraphStyle, NSForegroundColorAttributeName : [UIColor dogfishGreen]};
+	self.detailsAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline], NSParagraphStyleAttributeName : centeredParagraphStyle};
+	self.detailsAttributesSelected = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleHeadline], NSParagraphStyleAttributeName : centeredParagraphStyle, NSForegroundColorAttributeName : [UIColor dogfishGreen]};
 	self.closeButtonAttributes = @{NSFontAttributeName : [UIFont preferredDogfishFontForTextStyle:UIFontTextStyleCaption1]};
 
 	if (notification != nil) {
