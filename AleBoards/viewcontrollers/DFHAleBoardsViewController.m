@@ -43,6 +43,7 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 @interface DFHAleBoardsViewController ()
 
 @property (nonatomic, strong) DFHAleBoardDownloader *downloader;
+@property (nonatomic, strong) NSMutableArray *lastRetrievedData;
 
 /* Interface */
 @property (nonatomic, weak) UIScrollView *scrollView;
@@ -97,6 +98,35 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+
+	[self autolayout];
+	if ((self.lastRetrievedData == nil) || ([self.lastRetrievedData count] == 0))
+		[self refreshLabelsAndImages];
+	else
+		[self restoreLabelsAndImages];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	[super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+
+	[UIView animateWithDuration:duration animations:^() {
+		self.scrollView.alpha = 0;
+	} completion:^(BOOL finished) {
+		for (NSUInteger i = 0; i < [self.venueNameLabels count]; i++) {
+			[self.venueNameLabels[i] removeFromSuperview];
+			[self.lastUpdatedLabels[i] removeFromSuperview];
+			[self.infoButtons[i] removeFromSuperview];
+			[self.aleBoardImageViews[i] removeFromSuperview];
+			[self.pageControl removeFromSuperview];
+			[self.scrollView removeFromSuperview];
+		}
+	}];
+}
+
 # pragma mark - Layout
 
 - (void)autolayout
@@ -126,7 +156,11 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:pageControl attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl]|" options:0 metrics:nil views:views]];
 
-	NSDictionary *metrics = @{@"WIDTH" : @(CGRectGetHeight(self.view.frame) - 30.0), @"SEP" : @(15.0), @"SEP2" : @(30.0)};
+	NSMutableDictionary *metrics = [@{@"SEP" : @(15.0), @"SEP2" : @(30.0)} mutableCopy];
+	if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+		[metrics setObject:@(CGRectGetHeight(self.view.frame) - 30.0) forKey:@"WIDTH"];
+	else
+		[metrics setObject:@(CGRectGetWidth(self.view.frame) - 30.0) forKey:@"WIDTH"];
 	self.venueNameLabels = [NSMutableArray arrayWithCapacity:numberOfLocations];
 	self.lastUpdatedLabels = [NSMutableArray arrayWithCapacity:numberOfLocations];
 	self.aleBoardImageViews = [NSMutableArray arrayWithCapacity:numberOfLocations];
@@ -194,15 +228,15 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 - (void)refreshLabelsAndImages
 {
 	NSUInteger numberOfLocations = [self.downloader.aleBoardsData count];
+	self.lastRetrievedData = [@[] mutableCopy];
+
 	for (NSUInteger i = 0; i < numberOfLocations; i++) {
-		NSDictionary *locationInfo = [self.downloader informationAtIndex:i];
-		((UILabel *)self.venueNameLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:locationInfo[kDFHNameKey] attributes:self.venueNameLabelAttributes];
 		((UILabel *)self.lastUpdatedLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Never", @"Last updated label when it has not been updated") attributes:self.lastUpdatedLabelAttributes];
 
 		[self.downloader downloadAleBoardAtIndex:i completionHandler:^(UIImage *image, NSDate *lastModifiedDate, NSError *error) {
 			if (error == nil) {
-				NSDictionary *data = @{kDFHABVCLastModifiedDateKey : lastModifiedDate, kDFHABVCAleBoardImageKey : image, kDFHABVCLocationIndexKey : @(i)};
-				[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:data waitUntilDone:NO];
+				[self.lastRetrievedData addObject:@{kDFHABVCLastModifiedDateKey : lastModifiedDate, kDFHABVCAleBoardImageKey : image, kDFHABVCLocationIndexKey : @(i)}];
+				[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:[self.lastRetrievedData lastObject] waitUntilDone:NO];
 			} else
 				[[[UIAlertView alloc] initWithTitle:error.localizedFailureReason message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", nil) otherButtonTitles:nil] show];
 		}];
@@ -222,8 +256,16 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 	});
 
 	NSUInteger location = [data[kDFHABVCLocationIndexKey] unsignedIntegerValue];
+	NSDictionary *locationInfo = [self.downloader informationAtIndex:location];
+	((UILabel *)self.venueNameLabels[location]).attributedText = [[NSAttributedString alloc] initWithString:locationInfo[kDFHNameKey] attributes:self.venueNameLabelAttributes];
 	((UIImageView *)self.aleBoardImageViews[location]).image = data[kDFHABVCAleBoardImageKey];
 	((UILabel *)self.lastUpdatedLabels[location]).attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Last Updated", @"Prefix for last updated time"), [dateFormatter stringFromDate:data[kDFHABVCLastModifiedDateKey]]] attributes:self.lastUpdatedLabelAttributes];
+}
+
+- (void)restoreLabelsAndImages
+{
+	for (NSUInteger i = 0; i < [self.lastRetrievedData count]; i++)
+		[self displayLabelsAndImages:self.lastRetrievedData[i]];
 }
 
 #pragma mark - Actions
@@ -250,8 +292,8 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 	/* Update the page when more than 50% of the previous/next page is visible */
-	CGFloat pageWidth = self.scrollView.frame.size.width;
-	NSUInteger page = lroundf(floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
+	CGFloat pageWidth = scrollView.frame.size.width;
+	NSUInteger page = lroundf(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
 	self.pageControl.currentPage = page;
 }
 
