@@ -58,6 +58,13 @@ static NSString * const kDFHAleboardsPlist = @"aleboards";
 	self.lastModifiedDateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
 	self.lastModifiedDateFormatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
 
+	NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+	self.lastModifiedDateFormatter.locale = enUSPOSIXLocale;
+	NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	gregorianCalendar.locale = enUSPOSIXLocale;
+	gregorianCalendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+	self.lastModifiedDateFormatter.calendar = gregorianCalendar;
+
 	return (self);
 }
 
