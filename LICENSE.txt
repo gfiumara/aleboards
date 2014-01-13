@@ -12,7 +12,7 @@ See more at: http://www.dogfish.com/community/faq/terms-of-use.htm
 
 ********************************************************************************
 
-Copyright (c) 2013, Gregory Fiumara
+Copyright (c) 2013-2014, Gregory Fiumara
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
