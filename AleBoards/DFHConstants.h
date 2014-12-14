@@ -52,6 +52,6 @@ static NSString * const kDFHLocationLongitude = @"longitude";
  */
 
 /** Name of the logo for Dogfish Head Alehouse */
-static NSString * const kDFHDogfishLogoName = @"dfha_logo.png";
+static NSString * const kDFHDogfishLogoName = @"dfha_logo";
 
 #endif /* __DHF_CONSTANTS_H__ */

@@ -139,8 +139,8 @@
 	/* Vertical center of address label */
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:addressLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
 
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[logoButton(==105)]" options:0 metrics:nil views:views]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[logoButton(==60)]-[nameLabel]" options:0 metrics:nil views:views]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[logoButton(==120)]" options:0 metrics:nil views:views]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[logoButton(==73)]-[nameLabel]" options:0 metrics:nil views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[phoneNumberLabel]-[closeButton]-|" options:0 metrics:nil views:views]];
 }
 
