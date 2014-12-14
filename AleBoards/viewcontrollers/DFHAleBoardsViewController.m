@@ -235,8 +235,11 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 
 		[self.downloader downloadAleBoardAtIndex:i completionHandler:^(UIImage *image, NSDate *lastModifiedDate, NSError *error) {
 			if (error == nil) {
-				[self.lastRetrievedData addObject:@{kDFHABVCLastModifiedDateKey : lastModifiedDate, kDFHABVCAleBoardImageKey : image, kDFHABVCLocationIndexKey : @(i)}];
-				[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:[self.lastRetrievedData lastObject] waitUntilDone:NO];
+				if ((lastModifiedDate != nil) && (image != nil)) {
+					[self.lastRetrievedData addObject:@{kDFHABVCLastModifiedDateKey : lastModifiedDate, kDFHABVCAleBoardImageKey : image, kDFHABVCLocationIndexKey : @(i)}];
+					[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:[self.lastRetrievedData lastObject] waitUntilDone:NO];
+				} else
+					[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Could not receive data.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", nil) otherButtonTitles:nil] show];
 			} else
 				[[[UIAlertView alloc] initWithTitle:error.localizedFailureReason message:error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"Okay", nil) otherButtonTitles:nil] show];
 		}];
