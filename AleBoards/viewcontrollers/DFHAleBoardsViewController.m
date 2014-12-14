@@ -234,7 +234,7 @@ static NSString * const kDFHABVCAleBoardImageKey = @"image";
 		((UILabel *)self.lastUpdatedLabels[i]).attributedText = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Never", @"Last updated label when it has not been updated") attributes:self.lastUpdatedLabelAttributes];
 
 		[self.downloader downloadAleBoardAtIndex:i completionHandler:^(UIImage *image, NSDate *lastModifiedDate, NSError *error) {
-			if (error == nil && !(lastModifiedDate == nil || image == nil)) {
+			if (error == nil) {
 				[self.lastRetrievedData addObject:@{kDFHABVCLastModifiedDateKey : lastModifiedDate, kDFHABVCAleBoardImageKey : image, kDFHABVCLocationIndexKey : @(i)}];
 				[self performSelectorOnMainThread:@selector(displayLabelsAndImages:) withObject:[self.lastRetrievedData lastObject] waitUntilDone:NO];
 			} else
