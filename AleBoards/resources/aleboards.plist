@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>aleBoardURL</key>
-		<string>http://www.dogfishalehouse.com/media/albums/f.jpg</string>
+		<string>http://dogfishaleboards.com/images/fallschurch.jpg</string>
 		<key>name</key>
 		<string>Falls Church, VA</string>
 		<key>website</key>
@@ -22,7 +22,7 @@ Falls Church, VA 22044</string>
 	</dict>
 	<dict>
 		<key>aleBoardURL</key>
-		<string>http://www.dogfishalehouse.com/media/albums/ff.jpg</string>
+		<string>http://dogfishaleboards.com/images/fairfax.jpg</string>
 		<key>name</key>
 		<string>Fairfax, VA</string>
 		<key>website</key>
@@ -39,7 +39,7 @@ Fairfax, VA 22033</string>
 	</dict>
 	<dict>
 		<key>aleBoardURL</key>
-		<string>http://www.dogfishalehouse.com/media/albums/g.jpg</string>
+		<string>http://dogfishaleboards.com/images/gaithersburg.jpg</string>
 		<key>name</key>
 		<string>Gaithersburg, MD</string>
 		<key>website</key>
