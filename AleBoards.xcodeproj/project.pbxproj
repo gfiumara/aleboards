@@ -19,7 +19,6 @@
 		084369E4185B5A07002B0F44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 084369E0185B5A07002B0F44 /* InfoPlist.strings */; };
 		084369E5185B5A07002B0F44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 084369E2185B5A07002B0F44 /* main.m */; };
 		084369EB185B5A15002B0F44 /* aleboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084369E6185B5A15002B0F44 /* aleboards.plist */; };
-		084369EE185B5A15002B0F44 /* dogfish.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 084369E9185B5A15002B0F44 /* dogfish.ttf */; };
 		084369EF185B5A15002B0F44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 084369EA185B5A15002B0F44 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		084369E1185B5A07002B0F44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		084369E2185B5A07002B0F44 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = supporting_files/main.m; sourceTree = "<group>"; };
 		084369E6185B5A15002B0F44 /* aleboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = aleboards.plist; path = resources/aleboards.plist; sourceTree = "<group>"; };
-		084369E9185B5A15002B0F44 /* dogfish.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dogfish.ttf; path = resources/dogfish.ttf; sourceTree = "<group>"; };
 		084369EA185B5A15002B0F44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = resources/Images.xcassets; sourceTree = "<group>"; };
 		084369F0185B5B04002B0F44 /* AleBoards-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AleBoards-Info.plist"; sourceTree = "<group>"; };
 		084369F1185B5B04002B0F44 /* AleBoards-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AleBoards-Prefix.pch"; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				084369E6185B5A15002B0F44 /* aleboards.plist */,
-				084369E9185B5A15002B0F44 /* dogfish.ttf */,
 				084369EA185B5A15002B0F44 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -230,7 +227,6 @@
 				084369EB185B5A15002B0F44 /* aleboards.plist in Resources */,
 				084369E4185B5A07002B0F44 /* InfoPlist.strings in Resources */,
 				084369EF185B5A15002B0F44 /* Images.xcassets in Resources */,
-				084369EE185B5A15002B0F44 /* dogfish.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
